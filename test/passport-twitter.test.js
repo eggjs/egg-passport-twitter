@@ -18,7 +18,7 @@ describe('test/passport-twitter.test.js', () => {
   it('should GET /', () => {
     return request(app.callback())
       .get('/')
-      .expect('hi, passport-twitter')
+      .expect('hi, passportTwitter')
       .expect(200);
   });
 });
