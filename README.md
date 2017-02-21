@@ -20,9 +20,7 @@
 [download-image]: https://img.shields.io/npm/dm/egg-passport-twitter.svg?style=flat-square
 [download-url]: https://npmjs.org/package/egg-passport-twitter
 
-<!--
-Description here.
--->
+twitter passport plugin for egg
 
 ## Install
 
@@ -33,8 +31,8 @@ $ npm i egg-passport-twitter --save
 ## Usage
 
 ```js
-// {app_root}/config/plugin.js
-exports.passport-twitter = {
+// config/plugin.js
+exports.passportTwitter = {
   enable: true,
   package: 'egg-passport-twitter',
 };
@@ -43,16 +41,14 @@ exports.passport-twitter = {
 ## Configuration
 
 ```js
-// {app_root}/config/config.default.js
-exports.passport-twitter = {
+// config/config.default.js
+exports.passportTwitter = {
+  key: 'your oauth key',
+  secret: 'your oauth secret',
 };
 ```
 
 see [config/config.default.js](config/config.default.js) for more detail.
-
-## Example
-
-<!-- example here -->
 
 ## Questions & Suggestions
 
