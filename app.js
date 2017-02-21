@@ -5,13 +5,15 @@ const assert = require('assert');
 const Strategy = require('passport-twitter').Strategy;
 
 module.exports = app => {
-  const config = app.config.passport.twitter;
+  const config = app.config.passportTwitter;
   config.passReqToCallback = true;
-  assert(config.consumerKey, '[egg-passport-twitter] config.passport.twitter.consumerKey required');
-  assert(config.consumerSecret, '[egg-passport-twitter] config.passport.twitter.consumerSecret required');
+  assert(config.key, '[egg-passport-twitter] config.passportTwitter.key required');
+  assert(config.secret, '[egg-passport-twitter] config.passportTwitter.secret required');
+  config.consumerKey = config.key;
+  config.consumerSecret = config.secret;
 
   // must require `req` params
-  app.passport.use(new Strategy(config, (req, token, tokenSecret, params, profile, done) => {
+  app.passport.use('twitter', new Strategy(config, (req, token, tokenSecret, params, profile, done) => {
     // format user
     const user = {
       provider: 'twitter',
@@ -22,7 +24,7 @@ module.exports = app => {
       token,
       tokenSecret,
       params,
-      // profile: profile._json,
+      profile,
     };
     debug('%s %s get user: %j', req.method, req.url, user);
 
