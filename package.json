@@ -16,7 +16,7 @@
     "passport-twitter"
   ],
   "dependencies": {
-    "debug": "^2.6.1",
+    "debug": "^3.1.0",
     "passport-twitter": "^1.0.4"
   },
   "devDependencies": {
